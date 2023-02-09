@@ -1,6 +1,6 @@
 {
-  "name": "vite-reactts-tailwind-rtk-eslint",
-  "version": "0.0.0",
+  "name": "react-ecommerce",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
