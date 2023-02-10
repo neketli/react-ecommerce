@@ -1,0 +1,46 @@
+.navbar {
+  @apply sticky flex justify-between items-center px-16 py-4;
+}
+
+.navbar .menu {
+  @apply flex items-center gap-6;
+}
+
+.navbar .item {
+  @apply relative px-2 py-1;
+}
+
+.navbar .item a {
+  @apply p-1;
+}
+
+.navbar .item::after {
+  @apply absolute h-[1px] w-full bottom-0 left-0 bg-black scale-x-0 origin-bottom-right;
+  content: '';
+  transition: transform 0.3s;
+}
+
+.navbar .item:hover::after {
+  @apply origin-bottom-left scale-x-100;
+}
+
+.navbar .actions {
+  @apply flex items-center gap-4;
+}
+
+.navbar .cart,
+.navbar .search {
+  @apply relative flex items-center gap-2 hover:-translate-y-1 duration-300;
+}
+
+.navbar .cart .indicator {
+  @apply absolute top-0 right-0 px-1 bg-orange-300 rounded-full text-sm;
+}
+
+.navbar .logo a {
+  @apply flex items-center font-bold gap-2;
+}
+
+.navbar .icon {
+  @apply w-5 h-5 m-4;
+}
