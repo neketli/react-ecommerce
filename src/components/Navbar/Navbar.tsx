@@ -2,23 +2,11 @@ import React from 'react'
 import './styles.css'
 import { FaFireAlt, FaShoppingCart, FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { MenuItem } from '~/services/tabs'
 
-type Props = {}
-
-const menuItems = [
-  {
-    title: 'Каталог',
-    link: '/catalog',
-  },
-  {
-    title: 'О нас',
-    link: '/about',
-  },
-  {
-    title: 'Связь',
-    link: '/links',
-  },
-]
+interface Props {
+  menuItems: MenuItem[]
+}
 
 const Navbar = (props: Props) => {
   return (
@@ -30,7 +18,7 @@ const Navbar = (props: Props) => {
         </Link>
       </div>
       <ul className="menu">
-        {menuItems.map((item) => {
+        {props.menuItems.map((item: MenuItem) => {
           return (
             <li className="item">
               <Link to={item.link}>{item.title}</Link>
@@ -44,7 +32,7 @@ const Navbar = (props: Props) => {
         </div>
         <div className="cart cursor-pointer">
           <FaShoppingCart className="icon" />
-          {true && <span className="indicator">0</span>}
+          {true && <span className="indicator">2</span>}
         </div>
       </div>
     </div>
