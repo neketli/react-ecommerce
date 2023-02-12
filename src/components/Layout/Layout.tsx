@@ -6,7 +6,7 @@ import { MAIN_MENU } from '~/services/tabs'
 
 type Props = {}
 
-const Layout = (props: Props) => {
+function Layout(props: Props) {
   return (
     <div className="app h-full">
       <Navbar menuItems={MAIN_MENU} />

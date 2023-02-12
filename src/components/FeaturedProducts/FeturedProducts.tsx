@@ -8,7 +8,7 @@ type Props = {
   productList: Product[]
 }
 
-const FeturedProducts = ({ title, description, productList }: Props) => {
+function FeturedProducts({ title, description, productList }: Props) {
   return (
     <div className="feturedProducts py-8">
       <div className="flex items-center justify-between">
@@ -18,9 +18,7 @@ const FeturedProducts = ({ title, description, productList }: Props) => {
         )}
       </div>
       <div className="flex flex-wrap justify-center gap-8 py-4 px-8">
-        {productList.map((product) => {
-          return <Card key={product.id} product={product} />
-        })}
+        {productList.map((product) => <Card key={product.id} product={product} />)}
       </div>
     </div>
   )

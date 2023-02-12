@@ -2,7 +2,7 @@ import React from 'react'
 
 type Props = {}
 
-const Product = (props: Props) => {
+function Product(props: Props) {
   return <div>Product</div>
 }
 

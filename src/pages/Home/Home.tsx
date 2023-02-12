@@ -53,7 +53,7 @@ const productList: Product[] = [
   },
 ]
 
-const Home = (props: Props) => {
+function Home(props: Props) {
   return (
     <div className="home">
       <Banner />

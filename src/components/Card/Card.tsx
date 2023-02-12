@@ -6,7 +6,7 @@ type Props = {
   product: Product
 }
 
-const Card = ({ product }: Props) => {
+function Card({ product }: Props) {
   return (
     <div className="card">
       <div className="relative">

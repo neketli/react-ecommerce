@@ -3,7 +3,7 @@ import './style.css'
 
 type Props = {}
 
-const Banner = (props: Props) => {
+function Banner(props: Props) {
   return (
     <div className="banner flex justify-center py-4">
       <div className="wrapper flex items-center gap-8 md:gap-16">

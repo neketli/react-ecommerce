@@ -8,23 +8,21 @@ interface Props {
   menuItems: MenuItem[]
 }
 
-const Navbar = (props: Props) => {
+function Navbar({ menuItems }: Props) {
   return (
     <div className="navbar">
       <div className="logo">
         <Link to="/">
-          <FaFireAlt className="sm:text-2xl text-base" />{' '}
-          <span className="sm:text-2xl text-base">Элемент тепла</span>
+          <FaFireAlt className="text-base sm:text-2xl" />{' '}
+          <span className="text-base sm:text-2xl">Элемент тепла</span>
         </Link>
       </div>
       <ul className="menu">
-        {props.menuItems.map((item: MenuItem) => {
-          return (
-            <li className="item">
-              <Link to={item.link}>{item.title}</Link>
-            </li>
-          )
-        })}
+        {menuItems.map((item: MenuItem) => (
+          <li className="item">
+            <Link to={item.link}>{item.title}</Link>
+          </li>
+        ))}
       </ul>
       <div className="actions">
         <div className="search cursor-pointer">
