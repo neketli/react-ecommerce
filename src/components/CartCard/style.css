@@ -1,7 +1,0 @@
-.cart-card .description {
-  @apply mt-2 hidden text-sm;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
 .banner {
-  @apply py-16 shadow-md;
   font-family: 'Cormorant Garamond', serif;
 }
 

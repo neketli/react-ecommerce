@@ -3,7 +3,7 @@ import './style.css'
 
 function Banner() {
   return (
-    <div className="banner flex justify-center py-4">
+    <section className="banner flex h-[60vh] justify-center py-16 shadow-sm">
       <div className="wrapper flex items-center gap-8 md:gap-16">
         <div className="flex flex-col">
           <h1 className="text-2xl md:text-5xl">Газовое оборудование</h1>
@@ -17,7 +17,7 @@ function Banner() {
           />
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -2,16 +2,22 @@ import React from 'react'
 import Modal from 'react-modal'
 import { FaTimes } from 'react-icons/fa'
 import { Product } from '~/services/products'
-import { CartCard } from '~/components'
 import './style.css'
+import CartCard from './Card'
 
 type Props = {
   products: Product[]
   isModalOpen: boolean
   setIsOpenCallback: () => void
+  deleteCallback: () => void
 }
 
-const CartModal = ({ products, isModalOpen, setIsOpenCallback }: Props) => {
+const Cart = ({
+  products,
+  deleteCallback,
+  isModalOpen,
+  setIsOpenCallback,
+}: Props) => {
   return (
     <Modal
       closeTimeoutMS={200}
@@ -26,11 +32,17 @@ const CartModal = ({ products, isModalOpen, setIsOpenCallback }: Props) => {
       </div>
       <div className="mt-4 flex flex-col gap-4">
         {products.map((product) => {
-          return <CartCard product={product} key={product.id} />
+          return (
+            <CartCard
+              product={product}
+              deleteCallback={deleteCallback}
+              key={product.id}
+            />
+          )
         })}
       </div>
     </Modal>
   )
 }
 
-export default CartModal
+export default Cart

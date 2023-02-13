@@ -2,6 +2,7 @@ import React from 'react'
 import './styles.css'
 import { FaFireAlt, FaShoppingCart, FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 import { MenuItem } from '~/services/tabs'
 
 interface Props {
@@ -22,7 +23,7 @@ function Navbar({ menuItems, cartCount, toggleCartCallback }: Props) {
       <ul className="menu">
         {menuItems.map((item: MenuItem) => (
           <li key={item.title} className="item">
-            <Link to={item.link}>{item.title}</Link>
+            <HashLink to={item.link}>{item.title}</HashLink>
           </li>
         ))}
       </ul>

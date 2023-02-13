@@ -1,5 +1,5 @@
 .navbar {
-  @apply sticky flex justify-between items-center px-16 py-4;
+  @apply sticky top-0 z-10 flex items-center justify-between bg-white px-16 py-4 shadow-md;
 }
 
 .navbar .menu {
@@ -15,7 +15,7 @@
 }
 
 .navbar .item::after {
-  @apply absolute h-[1px] w-full bottom-0 left-0 bg-black scale-x-0 origin-bottom-right;
+  @apply absolute bottom-0 left-0 h-[1px] w-full origin-bottom-right scale-x-0 bg-black;
   content: '';
   transition: transform 0.3s;
 }
@@ -30,17 +30,17 @@
 
 .navbar .cart,
 .navbar .search {
-  @apply relative flex items-center gap-2 hover:-translate-y-1 duration-300;
+  @apply relative flex items-center gap-2 duration-300 hover:-translate-y-1;
 }
 
 .navbar .cart .indicator {
-  @apply absolute flex items-center justify-center top-0 right-0 px-1 bg-yellow-400 h-5 w-5 rounded-full text-sm;
+  @apply absolute top-0 right-0 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400 px-1 text-sm;
 }
 
 .navbar .logo a {
-  @apply flex items-center font-bold gap-2;
+  @apply flex items-center gap-2 font-bold;
 }
 
 .navbar .icon {
-  @apply w-5 h-5 m-4;
+  @apply m-4 h-5 w-5;
 }

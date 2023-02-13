@@ -61,6 +61,7 @@ function Home() {
           description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, a repellendus quisquam sapiente ducimus quam minima quasi provident consequatur, enim eum maiores impedit numquam nam cupiditate dolorum ea? Provident, nisi?"
           productList={productList}
         />
+        <section id="about"></section>
       </div>
     </div>
   )

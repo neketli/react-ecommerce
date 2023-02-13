@@ -1,10 +1,8 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { Navbar, Footer } from '~/components'
+import { Navbar, Footer, Cart } from '~/components'
 import { MAIN_MENU } from '~/services/tabs'
-
-import CartModal from '../CartModal'
 
 const Layout = () => {
   const [isModalOpen, setIsOpen] = React.useState(false)
@@ -73,7 +71,7 @@ const Layout = () => {
         <Outlet />
       </div>
       <Footer />
-      <CartModal
+      <Cart
         products={products}
         isModalOpen={isModalOpen}
         setIsOpenCallback={() => {

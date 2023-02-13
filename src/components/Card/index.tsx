@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import { Product } from '~/services/products'
+import { FaRubleSign } from 'react-icons/fa'
 
 type Props = {
   product: Product
@@ -22,7 +23,9 @@ function Card({ product }: Props) {
 
       <div className="mt-4 flex items-center justify-between">
         <h4 className=" text-lg font-medium">{product.title}</h4>
-        <p>{product.price}</p>
+        <p className="flex items-center gap-1">
+          {product.price} <FaRubleSign />
+        </p>
       </div>
     </div>
   )
