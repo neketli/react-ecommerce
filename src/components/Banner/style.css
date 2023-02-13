@@ -5,7 +5,7 @@
 }
 
 .banner .image {
-  @apply relative z-10 h-auto w-52;
+  @apply relative h-auto w-52;
   animation: banner-levitate 6s ease-in-out infinite;
 }
 

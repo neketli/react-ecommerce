@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Catalog = () => {
-  return <div>Catalog</div>
+  return <div>hello</div>
 }
 
 export default Catalog

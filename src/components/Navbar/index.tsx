@@ -6,9 +6,10 @@ import { MenuItem } from '~/services/tabs'
 
 interface Props {
   menuItems: MenuItem[]
+  toggleCartCallback: () => void
 }
 
-function Navbar({ menuItems }: Props) {
+function Navbar({ menuItems, toggleCartCallback }: Props) {
   return (
     <div className="navbar">
       <div className="logo">
@@ -29,7 +30,7 @@ function Navbar({ menuItems }: Props) {
           <FaSearch className="icon" />
         </div>
         <div className="cart cursor-pointer">
-          <FaShoppingCart className="icon" />
+          <FaShoppingCart onClick={toggleCartCallback} className="icon" />
           {true && <span className="indicator">2</span>}
         </div>
       </div>

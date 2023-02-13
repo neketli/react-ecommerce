@@ -3,6 +3,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Layout } from '~/components'
 import { Home, Catalog, Product } from '~/pages'
 
+import Modal from 'react-modal'
+Modal.setAppElement('#root')
+
 const router = createBrowserRouter([
   {
     path: '/',
