@@ -2,26 +2,24 @@ import React from 'react'
 import { Banner, FeaturedProducts } from '~/components'
 import { Product } from '~/services/products'
 
-type Props = {}
-
 const productList: Product[] = [
   {
     id: 1,
-    image: '/src/img/Buterus.png',
+    image: '/src/assets/img/Buterus.png',
     title: 'Boiler',
     description: 'lorem ipsum',
     price: 150,
   },
   {
     id: 2,
-    image: '/src/img/Buterus.png',
+    image: '/src/assets/img/Buterus.png',
     title: 'Boiler',
     description: 'lorem ipsum',
     price: 250,
   },
   {
     id: 3,
-    image: '/src/img/Buterus.png',
+    image: '/src/assets/img/Buterus.png',
     title: 'Boiler',
     description:
       'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
@@ -29,7 +27,7 @@ const productList: Product[] = [
   },
   {
     id: 3,
-    image: '/src/img/Buterus.png',
+    image: '/src/assets/img/Buterus.png',
     title: 'Boiler',
     description:
       'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
@@ -37,7 +35,7 @@ const productList: Product[] = [
   },
   {
     id: 3,
-    image: '/src/img/Buterus.png',
+    image: '/src/assets/img/Buterus.png',
     title: 'Boiler',
     description:
       'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
@@ -45,7 +43,7 @@ const productList: Product[] = [
   },
   {
     id: 3,
-    image: '/src/img/Buterus.png',
+    image: '/src/assets/img/Buterus.png',
     title: 'Boiler',
     description:
       'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
@@ -53,7 +51,7 @@ const productList: Product[] = [
   },
 ]
 
-function Home(props: Props) {
+function Home() {
   return (
     <div className="home">
       <Banner />

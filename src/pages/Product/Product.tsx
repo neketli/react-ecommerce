@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-function Product(props: Props) {
+function Product() {
   return <div>Product</div>
 }
 

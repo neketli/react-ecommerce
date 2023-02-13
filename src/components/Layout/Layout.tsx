@@ -4,9 +4,7 @@ import { Outlet } from 'react-router-dom'
 import { Navbar, Footer } from '~/components'
 import { MAIN_MENU } from '~/services/tabs'
 
-type Props = {}
-
-function Layout(props: Props) {
+function Layout() {
   return (
     <div className="app h-full">
       <Navbar menuItems={MAIN_MENU} />

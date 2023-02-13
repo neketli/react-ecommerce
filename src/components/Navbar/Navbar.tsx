@@ -19,7 +19,7 @@ function Navbar({ menuItems }: Props) {
       </div>
       <ul className="menu">
         {menuItems.map((item: MenuItem) => (
-          <li className="item">
+          <li key={item.title} className="item">
             <Link to={item.link}>{item.title}</Link>
           </li>
         ))}

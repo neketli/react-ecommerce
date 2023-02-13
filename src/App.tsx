@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Layout } from '~/components'
 import { Home, Catalog, Product } from '~/pages'
 

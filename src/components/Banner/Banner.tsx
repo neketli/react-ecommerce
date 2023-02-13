@@ -1,9 +1,7 @@
 import React from 'react'
 import './style.css'
 
-type Props = {}
-
-function Banner(props: Props) {
+function Banner() {
   return (
     <div className="banner flex justify-center py-4">
       <div className="wrapper flex items-center gap-8 md:gap-16">
@@ -13,7 +11,7 @@ function Banner(props: Props) {
         </div>
         <div className="relative">
           <img
-            src="/src/img/boiler/boiler.png"
+            src="/src/assets/img/boiler/boiler.png"
             alt="Газовый котел"
             className="image"
           />
