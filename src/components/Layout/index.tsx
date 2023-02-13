@@ -7,7 +7,11 @@ import { MAIN_MENU } from '~/services/tabs'
 import CartModal from '../CartModal'
 
 const Layout = () => {
-  const [modalIsOpen, setIsOpen] = React.useState(false)
+  const [isModalOpen, setIsOpen] = React.useState(false)
+
+  React.useEffect(() => {
+    document.body.style.overflow = isModalOpen ? 'hidden' : 'unset'
+  }, [isModalOpen])
 
   const products = [
     {
@@ -33,7 +37,7 @@ const Layout = () => {
       price: 150,
     },
     {
-      id: 3,
+      id: 4,
       image: '/src/assets/img/Buterus.png',
       title: 'Boiler',
       description:
@@ -41,7 +45,7 @@ const Layout = () => {
       price: 150,
     },
     {
-      id: 3,
+      id: 5,
       image: '/src/assets/img/Buterus.png',
       title: 'Boiler',
       description:
@@ -49,7 +53,7 @@ const Layout = () => {
       price: 150,
     },
     {
-      id: 3,
+      id: 6,
       image: '/src/assets/img/Buterus.png',
       title: 'Boiler',
       description:
@@ -61,9 +65,8 @@ const Layout = () => {
   return (
     <div className="app h-full">
       <Navbar
-        toggleCartCallback={() => {
-          setIsOpen(!modalIsOpen)
-        }}
+        cartCount={products.length}
+        toggleCartCallback={() => setIsOpen(!isModalOpen)}
         menuItems={MAIN_MENU}
       />
       <div className="content">
@@ -72,9 +75,9 @@ const Layout = () => {
       <Footer />
       <CartModal
         products={products}
-        modalIsOpen={modalIsOpen}
+        isModalOpen={isModalOpen}
         setIsOpenCallback={() => {
-          setIsOpen(!modalIsOpen)
+          setIsOpen(!isModalOpen)
         }}
       />
     </div>

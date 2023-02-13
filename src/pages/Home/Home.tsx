@@ -26,7 +26,7 @@ const productList: Product[] = [
     price: 150,
   },
   {
-    id: 3,
+    id: 4,
     image: '/src/assets/img/Buterus.png',
     title: 'Boiler',
     description:
@@ -34,7 +34,7 @@ const productList: Product[] = [
     price: 150,
   },
   {
-    id: 3,
+    id: 5,
     image: '/src/assets/img/Buterus.png',
     title: 'Boiler',
     description:
@@ -42,7 +42,7 @@ const productList: Product[] = [
     price: 150,
   },
   {
-    id: 3,
+    id: 6,
     image: '/src/assets/img/Buterus.png',
     title: 'Boiler',
     description:
