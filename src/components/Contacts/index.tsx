@@ -19,8 +19,8 @@ const Contacts = () => {
             Связаться
           </h2>
           <p className="mb-4 leading-relaxed text-gray-600">
-            Если у вас остались вопросы, с радостью ответим на них по
-            электронной почте или телефону
+            Если у вас остались вопросы с радостью ответим на них по электронной
+            почте или телефону
           </p>
           <div className="relative mb-4">
             <label htmlFor="email" className="text-sm leading-7 text-gray-600">
@@ -31,6 +31,7 @@ const Contacts = () => {
               id="email"
               name="email"
               className="w-full rounded border border-gray-300 bg-white py-1 px-3 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200"
+              placeholder="test@email.ru"
             />
           </div>
           <div className="relative mb-4">

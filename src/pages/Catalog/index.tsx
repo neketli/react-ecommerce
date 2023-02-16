@@ -1,6 +1,7 @@
-import React from 'react'
-import { Search } from '~/components'
+import React, { useState } from 'react'
+import { Search, Tabs } from '~/components'
 import { ProductList } from '~/components'
+import { Tab } from '~/components/UI/Tabs'
 import { Product } from '~/services/products'
 
 const Catalog = () => {
@@ -53,10 +54,32 @@ const Catalog = () => {
     },
   ]
 
+  const tabs = [
+    {
+      title: 'asd1',
+    },
+    {
+      title: 'asd2',
+    },
+  ]
+
+  const [activeFilter, setActiveFilter] = useState({})
+
+  const onChange = (tab: Tab) => {
+    console.log(activeFilter, tab)
+    setActiveFilter(tab)
+  }
+
   return (
     <div className="catalog">
       <div className="container mx-auto mb-4">
         <Search placeholder="Газовый котел..." className="mt-8" />
+        <Tabs
+          className="my-4"
+          onChange={onChange}
+          activeTab={activeFilter}
+          tabs={tabs}
+        />
         <ProductList list={productList} />
       </div>
     </div>
