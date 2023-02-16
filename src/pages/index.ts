@@ -1,3 +1,4 @@
-export { default as Home } from './Home/Home'
-export { default as Catalog } from './Catalog/Catalog'
-export { default as Product } from './Product/Product'
+export { default as Home } from './Home'
+export { default as Catalog } from './Catalog'
+export { default as Product } from './Product'
+export { default as Error } from './Error'
