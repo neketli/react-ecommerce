@@ -8,7 +8,6 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button: React.FC<Props> = ({ children, ...props }: Props) => {
   return (
     <button className="button" {...props}>
-      {' '}
       {children}
     </button>
   )

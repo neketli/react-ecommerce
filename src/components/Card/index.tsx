@@ -3,7 +3,7 @@ import './style.css'
 import { Product } from '~/services/products'
 import { FaCartPlus } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { Button } from '~/UI'
+import { Button } from '~/components'
 
 type Props = {
   product: Product

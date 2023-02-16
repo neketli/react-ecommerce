@@ -1,4 +1,5 @@
 import React from 'react'
+import { Search } from '~/components'
 import { ProductList } from '~/components'
 import { Product } from '~/services/products'
 
@@ -52,7 +53,14 @@ const Catalog = () => {
     },
   ]
 
-  return <ProductList list={productList} />
+  return (
+    <div className="catalog">
+      <div className="container mx-auto mb-4">
+        <Search placeholder="Газовый котел..." className="mt-8" />
+        <ProductList list={productList} />
+      </div>
+    </div>
+  )
 }
 
 export default Catalog

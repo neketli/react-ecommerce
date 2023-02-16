@@ -28,9 +28,6 @@ function Navbar({ menuItems, cartCount, toggleCartCallback }: Props) {
         ))}
       </ul>
       <div className="actions">
-        <div className="search cursor-pointer">
-          <FaSearch className="icon" />
-        </div>
         <div onClick={toggleCartCallback} className="cart cursor-pointer">
           <FaShoppingCart className="icon" />
           {cartCount > 0 && <span className="indicator">{cartCount}</span>}

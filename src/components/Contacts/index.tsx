@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '~/UI'
+import { Button } from '~/components'
 
 const Contacts = () => {
   return (
