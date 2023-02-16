@@ -17,8 +17,16 @@ function Footer() {
           </div>
         </div>
 
-        <div className="pt-4 pb-8 text-center text-sm text-gray-400">
-          © 2023 - Элемент тепла.
+        <div className="flex flex-col items-center justify-center gap-2  pt-4 pb-8 text-sm text-gray-400">
+          <p className=" text-center text-xs text-gray-500">
+            © 2023 - Элемент тепла.
+          </p>
+          <a
+            href="tel:+79281217799"
+            className="text-center text-xs text-gray-500"
+          >
+            +7 (928) 121-77-99
+          </a>
         </div>
       </footer>
     </div>

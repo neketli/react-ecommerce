@@ -3,6 +3,7 @@ import './style.css'
 import { Product } from '~/services/products'
 import { FaCartPlus } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { Button } from '~/UI'
 
 type Props = {
   product: Product
@@ -41,9 +42,10 @@ function Card({ product }: Props) {
         <h4 className=" text-lg font-medium">{product.title}</h4>
         <div className="flex items-center justify-between">
           <p className="">{product.price} ₽</p>
-          <a className="inline-block flex-1 cursor-pointer rounded-lg bg-yellow-400 px-4 py-2 text-center text-sm font-semibold outline-none ring-yellow-300 transition duration-100 hover:bg-yellow-500 focus-visible:ring active:bg-yellow-600 sm:flex-none md:text-base">
+
+          <Button>
             <FaCartPlus className="fill-black" />
-          </a>
+          </Button>
         </div>
       </div>
     </div>

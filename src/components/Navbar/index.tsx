@@ -13,7 +13,7 @@ interface Props {
 
 function Navbar({ menuItems, cartCount, toggleCartCallback }: Props) {
   return (
-    <div className="navbar">
+    <header className="navbar">
       <div className="logo">
         <Link to="/">
           <FaFireAlt className="text-base sm:text-2xl" />{' '}
@@ -36,7 +36,7 @@ function Navbar({ menuItems, cartCount, toggleCartCallback }: Props) {
           {cartCount > 0 && <span className="indicator">{cartCount}</span>}
         </div>
       </div>
-    </div>
+    </header>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { About, Banner, FeaturedProducts } from '~/components'
+import { About, Banner, FeaturedProducts, Contacts } from '~/components'
 import { Product } from '~/services/products'
 
 const productList: Product[] = [
@@ -64,6 +64,9 @@ function Home() {
         />
         <section id="about">
           <About />
+        </section>
+        <section id="contacts">
+          <Contacts />
         </section>
       </div>
     </div>
