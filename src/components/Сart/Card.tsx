@@ -13,7 +13,7 @@ const CartCard = ({ product, deleteCallback }: Props) => {
     <div className="cart-card relative block rounded-xl border border-gray-100 p-8 shadow-md">
       <div className="absolute right-4 top-4 flex gap-1">
         <span className="flex gap-1 rounded-full bg-green-100 px-3 py-1.5 text-xs font-bold text-green-600">
-          {product.price} <FaRubleSign />
+          {product.price} ₽
         </span>
         <button
           onClick={deleteCallback}

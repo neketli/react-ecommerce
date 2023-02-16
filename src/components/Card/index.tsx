@@ -24,8 +24,7 @@ function Card({ product }: Props) {
       <div className="mt-4 flex items-center justify-between">
         <h4 className=" text-lg font-medium">{product.title}</h4>
         <div className="flex">
-          <p className="">{product.price}</p>
-          <FaRubleSign />
+          <p className="">{product.price}</p>₽
         </div>
       </div>
     </div>
