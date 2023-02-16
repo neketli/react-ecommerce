@@ -8,6 +8,7 @@ const productList: Product[] = [
     image: '/src/assets/img/Buterus.png',
     title: 'Boiler',
     description: 'lorem ipsum',
+    category: ['lorem', 'ipsum'],
     price: 150,
   },
   {

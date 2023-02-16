@@ -1,19 +1,18 @@
 .card {
-  @apply cursor-pointer;
+  @apply flex flex-col justify-between;
 }
 
 .card .description {
-  @apply absolute bottom-0 h-64 w-48 overflow-hidden rounded-md  bg-black  bg-opacity-80 p-2  text-sm text-white opacity-0;
+  @apply absolute top-0 h-48 w-full overflow-hidden rounded-md  bg-black  bg-opacity-80 p-2  text-sm text-white opacity-0;
   transition: all 0.2s ease-in-out;
   z-index: 1;
 }
 
-.card:hover {
+.description:hover {
   transition: all 0.2s ease-in-out;
   opacity: 0.9;
   filter: grayscale(80%);
 }
-
-.card:hover .description {
-  @apply opacity-100;
+.description:hover {
+  @apply cursor-pointer opacity-100;
 }
