@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Search, Tabs } from '~/components'
 import { ProductList } from '~/components'
-import { Tab } from '~/components/UI/Tabs'
+import { Category } from '~/models/Category'
 import { Product } from '~/models/Product'
 
 const Catalog = () => {
@@ -65,7 +65,7 @@ const Catalog = () => {
 
   const [activeFilter, setActiveFilter] = useState({})
 
-  const onChange = (tab: Tab) => {
+  const onChange = (tab: Category) => {
     console.log(activeFilter, tab)
     setActiveFilter(tab)
   }

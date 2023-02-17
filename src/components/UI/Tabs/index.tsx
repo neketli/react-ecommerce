@@ -1,15 +1,11 @@
 import React from 'react'
+import { Category } from '~/models/Category'
 
 interface Props {
-  tabs: Tab[]
-  activeTab: Tab
+  tabs: Category[]
+  activeTab: Category
   className: string
-  onChange: (tab: Tab) => void
-}
-export interface Tab {
-  id?: string | number
-  disabled?: boolean
-  title?: string
+  onChange: (tab: Category) => void
 }
 
 const Tabs = ({ tabs, className, activeTab, onChange, ...rest }: Props) => {
@@ -25,7 +21,7 @@ const Tabs = ({ tabs, className, activeTab, onChange, ...rest }: Props) => {
           <button
             type="button"
             className={
-              tab.title === activeTab.title
+              tab.value === activeTab.value
                 ? 'inline-block rounded-lg bg-yellow-300 px-4 py-3 text-black'
                 : 'inline-block rounded-lg px-4 py-3 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white'
             }
