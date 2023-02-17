@@ -2,73 +2,16 @@ import React, { useState } from 'react'
 import { Search, Tabs } from '~/components'
 import { ProductList } from '~/components'
 import { Category } from '~/models/Category'
-import { Product } from '~/models/Product'
 
 const Catalog = () => {
-  const productList: Product[] = [
-    {
-      id: 1,
-      image: '/src/assets/img/Buterus.png',
-      title: 'Boiler',
-      description: 'lorem ipsum',
-      price: 150,
-    },
-    {
-      id: 2,
-      image: '/src/assets/img/Buterus.png',
-      title: 'Boiler',
-      description: 'lorem ipsum',
-      price: 250,
-    },
-    {
-      id: 3,
-      image: '/src/assets/img/Buterus.png',
-      title: 'Boiler',
-      description:
-        'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
-      price: 150,
-    },
-    {
-      id: 4,
-      image: '/src/assets/img/Buterus.png',
-      title: 'Boiler',
-      description:
-        'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
-      price: 150,
-    },
-    {
-      id: 5,
-      image: '/src/assets/img/Buterus.png',
-      title: 'Boiler',
-      description:
-        'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
-      price: 150,
-    },
-    {
-      id: 6,
-      image: '/src/assets/img/Buterus.png',
-      title: 'Boiler',
-      description:
-        'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
-      price: 150,
-    },
-  ]
-
-  const tabs = [
+  const tabs: Category[] = [
     {
       title: 'asd1',
-    },
-    {
-      title: 'asd2',
+      value: 'asd1',
     },
   ]
 
-  const [activeFilter, setActiveFilter] = useState({})
-
-  const onChange = (tab: Category) => {
-    console.log(activeFilter, tab)
-    setActiveFilter(tab)
-  }
+  const [activeFilter, setActiveFilter] = useState({ title: '', value: '' })
 
   return (
     <div className="catalog">
@@ -76,7 +19,7 @@ const Catalog = () => {
         <Search placeholder="Газовый котел..." className="mt-8" />
         <Tabs
           className="my-4"
-          onChange={onChange}
+          onChange={setActiveFilter}
           activeTab={activeFilter}
           tabs={tabs}
         />
