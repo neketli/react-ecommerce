@@ -1,6 +1,6 @@
 import React from 'react'
 import { About, Banner, FeaturedProducts, Contacts } from '~/components'
-import { Product } from '~/services/products'
+import { Product } from '~/models/Product'
 
 const productList: Product[] = [
   {

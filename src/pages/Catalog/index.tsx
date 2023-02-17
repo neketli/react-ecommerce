@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Search, Tabs } from '~/components'
 import { ProductList } from '~/components'
 import { Tab } from '~/components/UI/Tabs'
-import { Product } from '~/services/products'
+import { Product } from '~/models/Product'
 
 const Catalog = () => {
   const productList: Product[] = [

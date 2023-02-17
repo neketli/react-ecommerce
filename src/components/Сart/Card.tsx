@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaRubleSign, FaTrash } from 'react-icons/fa'
-import { Product } from '~/services/products'
+import { Product } from '~/models/Product'
 import './style.css'
 
 type Props = {

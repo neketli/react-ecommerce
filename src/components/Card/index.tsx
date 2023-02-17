@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import { Product } from '~/services/products'
+import { Product } from '~/models/Product'
 import { FaCartPlus } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { Button } from '~/components'

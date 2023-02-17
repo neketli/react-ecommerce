@@ -1,7 +1,7 @@
 import React from 'react'
 import Modal from 'react-modal'
 import { FaTimes } from 'react-icons/fa'
-import { Product } from '~/services/products'
+import { Product } from '~/models/Product'
 import './style.css'
 import CartCard from './Card'
 

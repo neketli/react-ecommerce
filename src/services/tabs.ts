@@ -1,7 +1,5 @@
-export interface MenuItem {
-  title: string
-  link: string
-}
+import { MenuItem } from "~/models/MenuItem";
+
 
 export const MAIN_MENU: MenuItem[] = [
   {
