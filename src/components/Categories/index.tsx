@@ -21,7 +21,7 @@ const Tabs = ({ tabs, className, activeTab, onChange, ...rest }: Props) => {
           <button
             type="button"
             className={
-              tab.value === activeTab.value
+              tab.url === activeTab.url
                 ? 'inline-block rounded-lg bg-yellow-300 px-4 py-3 text-black'
                 : 'inline-block rounded-lg px-4 py-3 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white'
             }
@@ -30,7 +30,7 @@ const Tabs = ({ tabs, className, activeTab, onChange, ...rest }: Props) => {
             role="tab"
             onClick={() => onChange(tab)}
           >
-            {tab.title}
+            {tab.name}
           </button>
         </li>
       ))}

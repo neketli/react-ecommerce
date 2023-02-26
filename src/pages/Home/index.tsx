@@ -1,58 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { About, Banner, FeaturedProducts, Contacts } from '~/components'
 import { Product } from '~/models/Product'
-
-const productList: Product[] = [
-  {
-    id: 1,
-    image: '/src/assets/img/Buterus.png',
-    title: 'Boiler',
-    description: 'lorem ipsum',
-    category: ['lorem', 'ipsum'],
-    price: 150,
-  },
-  {
-    id: 2,
-    image: '/src/assets/img/Buterus.png',
-    title: 'Boiler',
-    description: 'lorem ipsum',
-    price: 250,
-  },
-  {
-    id: 3,
-    image: '/src/assets/img/Buterus.png',
-    title: 'Boiler',
-    description:
-      'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
-    price: 150,
-  },
-  {
-    id: 4,
-    image: '/src/assets/img/Buterus.png',
-    title: 'Boiler',
-    description:
-      'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
-    price: 150,
-  },
-  {
-    id: 5,
-    image: '/src/assets/img/Buterus.png',
-    title: 'Boiler',
-    description:
-      'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
-    price: 150,
-  },
-  {
-    id: 6,
-    image: '/src/assets/img/Buterus.png',
-    title: 'Boiler',
-    description:
-      'Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a Lorem ipsum dolor sit amet consectetur a',
-    price: 150,
-  },
-]
+import { useStoreDispatch, RootState } from '~/store'
+import { getProducts } from '~/store/products'
 
 function Home() {
+  const dispatch = useStoreDispatch()
+  const products: Product[] = useSelector(
+    (state: RootState) => state.products.list
+  )
+
+  useEffect(() => {
+    dispatch(getProducts())
+  }, [dispatch])
+
   return (
     <div className="home">
       <Banner />
@@ -60,7 +22,7 @@ function Home() {
         <FeaturedProducts
           title="Популярное"
           description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, a repellendus quisquam sapiente ducimus quam minima quasi provident consequatur, enim eum maiores impedit numquam nam cupiditate dolorum ea? Provident, nisi?"
-          productList={productList}
+          productList={products}
         />
         <section id="about">
           <About />

@@ -1,40 +1,48 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { Product } from '~/models/Product'
+import {
+  ProductsServerResponse,
+  ServerCategoryData,
+  ServerProductData,
+} from '~/models/ServerResponse'
 import { getProductsApi } from '~/services/products'
 
 interface ProductsState {
-  products: Product[]
-  isLoading: boolean
-  error: string
+  list: Product[]
 }
 
 const initialState: ProductsState = {
-  products: [],
-  isLoading: false,
-  error: '',
+  list: [],
 }
 
 export const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {
-    fetching(state: ProductsState) {
-      state.isLoading = true
-    },
-    fetchSuccess(state: ProductsState, action: PayloadAction<Product[]>) {
-      state.isLoading = false
-      state.products = action.payload
-    },
-    fetchError(state: ProductsState, action: PayloadAction<Error>) {
-      state.isLoading = false
-      state.error = action.payload.message
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(getProducts.fulfilled, (state, action) => {
+      state.list = action.payload.data.map((item: ServerProductData) => ({
+        id: item.id,
+        ...item.attributes,
+        image:
+          import.meta.env.VITE_BASE_URL +
+          item.attributes.image.data.attributes.url,
+        categories: item.attributes.categories.data.map(
+          (item: ServerCategoryData) => ({
+            ...item.attributes,
+          })
+        ),
+      }))
+    })
   },
 })
 
-export const getProducts = createAsyncThunk('getProducts', async () => {
-  const response = await getProductsApi()
-  return response
-})
+export const getProducts = createAsyncThunk(
+  'getProducts',
+  async (): Promise<ProductsServerResponse> => {
+    const { data } = await getProductsApi()
+    return data
+  }
+)
 
 export default productsSlice.reducer

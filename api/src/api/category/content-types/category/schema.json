@@ -13,13 +13,19 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "product": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::product.product",
       "inversedBy": "categories"
+    },
+    "url": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
     }
   }
 }

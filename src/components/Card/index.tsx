@@ -27,14 +27,14 @@ function Card({ product }: Props) {
 
       <div className="mt-4 flex flex-col">
         <div className="flex gap-2">
-          {product.category &&
-            product.category.map((item) => {
+          {product.categories &&
+            product.categories.map((item) => {
               return (
                 <a
-                  key={item}
+                  key={item.name}
                   className="title-font mb-1 rounded-full bg-slate-100 px-2 py-1 text-xs font-medium tracking-widest text-gray-500"
                 >
-                  {item}
+                  {item.name}
                 </a>
               )
             })}
