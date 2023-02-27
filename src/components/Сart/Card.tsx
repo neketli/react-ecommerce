@@ -1,14 +1,21 @@
 import React from 'react'
-import { FaRubleSign, FaTrash } from 'react-icons/fa'
+import { FaTrash } from 'react-icons/fa'
 import { Product } from '~/models/Product'
 import './style.css'
 
 type Props = {
   product: Product
-  deleteCallback: () => void
+  incrementItemCallback: () => void
+  decrementItemCallback: () => void
+  removeItemCallback: () => void
 }
 
-const CartCard = ({ product, deleteCallback }: Props) => {
+const CartCard = ({
+  product,
+  incrementItemCallback,
+  decrementItemCallback,
+  removeItemCallback,
+}: Props) => {
   return (
     <div className="cart-card relative block rounded-xl border border-gray-100 p-8 shadow-md">
       <div className="absolute right-4 top-4 flex gap-1">
@@ -16,7 +23,7 @@ const CartCard = ({ product, deleteCallback }: Props) => {
           {product.price} ₽
         </span>
         <button
-          onClick={deleteCallback}
+          onClick={removeItemCallback}
           className="flex gap-1 rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold transition-all hover:bg-red-200 hover:shadow-md"
         >
           <FaTrash className="fill-red-600 transition-all hover:fill-red-800" />

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Search } from '~/components/UI'
 import { ProductList, Categories } from '~/components'
 import { RootState, useStoreDispatch } from '~/store'
-import { useSelector } from 'react-redux'
 import { getProducts } from '~/store/products'
+import { getCategories } from '~/store/categories'
 import { Product } from '~/models/Product'
 import { Category } from '~/models/Category'
-import { getCategories } from '~/store/categories'
 
 const Catalog = () => {
   const dispatch = useStoreDispatch()

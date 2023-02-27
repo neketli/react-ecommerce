@@ -1,5 +1,5 @@
 .navbar {
-  @apply sticky top-0 z-50 flex items-center justify-between bg-white px-16 py-4 shadow-md;
+  @apply sticky top-0 z-50 grid grid-cols-3 items-center justify-between bg-white px-16 py-4 shadow-md;
 }
 
 .navbar .menu {
@@ -25,7 +25,7 @@
 }
 
 .navbar .actions {
-  @apply flex items-center gap-4;
+  @apply flex items-center justify-end gap-4;
 }
 
 .navbar .cart {

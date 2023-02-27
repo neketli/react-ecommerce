@@ -1,9 +1,9 @@
 import React from 'react'
-import './styles.css'
-import { FaFireAlt, FaShoppingCart, FaSearch } from 'react-icons/fa'
+import { FaFireAlt, FaShoppingCart } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
 import { MenuItem } from '~/models/MenuItem'
+import './styles.css'
 
 interface Props {
   menuItems: MenuItem[]

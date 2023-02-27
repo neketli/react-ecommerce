@@ -7,9 +7,11 @@ import { Button } from '~/components'
 
 type Props = {
   product: Product
+  addToCartCallback: (product: Product) => void
 }
 
-function Card({ product }: Props) {
+const Card = ({ product, addToCartCallback }: Props) => {
+  const onAddToCart = () => addToCartCallback(product)
   return (
     <div className="card">
       <div className="relative block h-48 overflow-hidden rounded">
@@ -43,7 +45,7 @@ function Card({ product }: Props) {
         <div className="flex items-center justify-between">
           <p className="">{product.price} ₽</p>
 
-          <Button>
+          <Button onClick={onAddToCart}>
             <FaCartPlus className="fill-black" />
           </Button>
         </div>

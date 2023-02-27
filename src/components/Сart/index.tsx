@@ -1,20 +1,26 @@
 import React from 'react'
 import Modal from 'react-modal'
 import { FaTimes } from 'react-icons/fa'
-import { Product } from '~/models/Product'
-import './style.css'
 import CartCard from './Card'
+import { CartProduct } from '~/store/cart'
+import './style.css'
 
 type Props = {
-  products: Product[]
+  total: number
+  products: CartProduct[]
   isModalOpen: boolean
   setIsOpenCallback: () => void
-  deleteCallback: () => void
+  incrementItemCallback: () => void
+  decrementItemCallback: () => void
+  removeItemCallback: () => void
 }
 
 const Cart = ({
+  total,
   products,
-  deleteCallback,
+  incrementItemCallback,
+  decrementItemCallback,
+  removeItemCallback,
   isModalOpen,
   setIsOpenCallback,
 }: Props) => {
@@ -35,12 +41,15 @@ const Cart = ({
           return (
             <CartCard
               product={product}
-              deleteCallback={deleteCallback}
+              incrementItemCallback={incrementItemCallback}
+              decrementItemCallback={decrementItemCallback}
+              removeItemCallback={removeItemCallback}
               key={product.id}
             />
           )
         })}
       </div>
+      <div className="text-xl font-bold">{total}</div>
     </Modal>
   )
 }
