@@ -3,8 +3,15 @@ import { useSelector } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 
 import { Navbar, Footer, Cart } from '~/components'
+import { Product } from '~/models/Product'
 import { MAIN_MENU } from '~/services/tabs'
-import { RootState } from '~/store'
+import { RootState, useStoreDispatch } from '~/store'
+import {
+  CartProduct,
+  decrementCount,
+  incrementCount,
+  removeItem,
+} from '~/store/cart'
 
 const Layout = () => {
   const [isModalOpen, setIsOpen] = React.useState(false)
@@ -14,6 +21,8 @@ const Layout = () => {
   }, [isModalOpen])
 
   const cart = useSelector((state: RootState) => state.cart.cart)
+
+  const dispatch = useStoreDispatch()
 
   const getTotal = () => {
     const total = {
@@ -47,9 +56,15 @@ const Layout = () => {
         setIsOpenCallback={() => {
           setIsOpen(!isModalOpen)
         }}
-        incrementItemCallback={() => {}}
-        decrementItemCallback={() => {}}
-        removeItemCallback={() => {}}
+        incrementItemCallback={(product: Product) => {
+          dispatch(incrementCount(product))
+        }}
+        decrementItemCallback={(product: Product) => {
+          dispatch(decrementCount(product))
+        }}
+        removeItemCallback={(product: Product) => {
+          dispatch(removeItem(product))
+        }}
       />
     </div>
   )

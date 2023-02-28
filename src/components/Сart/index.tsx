@@ -4,15 +4,16 @@ import { FaTimes } from 'react-icons/fa'
 import CartCard from './Card'
 import { CartProduct } from '~/store/cart'
 import './style.css'
+import { Product } from '~/models/Product'
 
 type Props = {
   total: number
   products: CartProduct[]
   isModalOpen: boolean
   setIsOpenCallback: () => void
-  incrementItemCallback: () => void
-  decrementItemCallback: () => void
-  removeItemCallback: () => void
+  incrementItemCallback: (product: Product) => void
+  decrementItemCallback: (product: Product) => void
+  removeItemCallback: (product: Product) => void
 }
 
 const Cart = ({

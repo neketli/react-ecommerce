@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { Product } from '~/models/Product'
 
 export type CartProduct = Product & { count: number }
@@ -15,7 +15,7 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state, action) => {
+    addToCart: (state, action: PayloadAction<Product>) => {
       const itemInCart = state.cart.find(
         (item) => item.id === action.payload.id
       )
@@ -25,20 +25,22 @@ export const cartSlice = createSlice({
         state.cart.push({ ...action.payload, count: 1 })
       }
     },
-    incrementCount: (state, action) => {
-      const item = state.cart.find((item) => item.id === action.payload)
+    incrementCount: (state, action: PayloadAction<Product>) => {
+      const item = state.cart.find((item) => item.id === action.payload.id)
       if (!item) return
       item.count++
     },
-    decrementCount: (state, action) => {
-      const item = state.cart.find((item) => item.id === action.payload)
+    decrementCount: (state, action: PayloadAction<Product>) => {
+      const item = state.cart.find((item) => item.id === action.payload.id)
       if (!item) return
       if (item.count > 1) {
         item.count--
       }
     },
-    removeItem: (state, action) => {
-      const removeItem = state.cart.filter((item) => item.id !== action.payload)
+    removeItem: (state, action: PayloadAction<Product>) => {
+      const removeItem = state.cart.filter(
+        (item) => item.id !== action.payload.id
+      )
       state.cart = removeItem
     },
   },

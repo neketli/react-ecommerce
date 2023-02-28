@@ -9,7 +9,7 @@ type Props = {
 }
 
 const ProductList = ({ list }: Props) => {
-  const dispatch = useStoreDispatch
+  const dispatch = useStoreDispatch()
   const addToCartCallback = (product: Product) => {
     dispatch(addToCart(product))
   }

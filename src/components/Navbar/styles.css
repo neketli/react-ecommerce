@@ -3,7 +3,7 @@
 }
 
 .navbar .menu {
-  @apply flex items-center gap-6;
+  @apply flex items-center justify-center gap-6;
 }
 
 .navbar .item {
