@@ -11,7 +11,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const Search = ({ id, className, label, placeholder, ...props }: Props) => {
   return (
-    <form className={className}>
+    <form onSubmit={(event) => event.preventDefault()} className={className}>
       {label && (
         <label
           htmlFor={id}

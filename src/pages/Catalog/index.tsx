@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Search } from '~/components/UI'
 import { ProductList, Categories } from '~/components'
@@ -7,6 +7,7 @@ import { getProducts } from '~/store/products'
 import { getCategories } from '~/store/categories'
 import { Product } from '~/models/Product'
 import { Category } from '~/models/Category'
+import { debounce } from 'lodash'
 
 const Catalog = () => {
   const dispatch = useStoreDispatch()
@@ -22,11 +23,24 @@ const Catalog = () => {
   }, [dispatch])
 
   const [activeFilter, setActiveFilter] = useState({ name: '', url: '' })
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const setSearch = debounce((event: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value)
+  }, 200)
+
+  useEffect(() => {
+    dispatch(getProducts({ products: searchQuery }))
+  }, [searchQuery])
 
   return (
     <div className="catalog">
       <div className="container mx-auto mb-4">
-        <Search placeholder="Газовый котел..." className="mt-8" />
+        <Search
+          placeholder="Газовый котел..."
+          className="mt-8"
+          onInput={setSearch}
+        />
         <Categories
           className="my-4"
           onChange={setActiveFilter}
