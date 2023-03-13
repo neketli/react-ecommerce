@@ -1,19 +1,15 @@
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
 import { About, Banner, FeaturedProducts, Contacts } from '~/components'
 import { Product } from '~/models/Product'
-import { useStoreDispatch, RootState } from '~/store'
-import { getProducts } from '~/store/products'
+import { getPopularProductsApi } from '~/services/products'
 
 function Home() {
-  const dispatch = useStoreDispatch()
-  const products: Product[] = useSelector(
-    (state: RootState) => state.products.list
-  )
-
+  const [products, setProducts] = useState<Product[]>([])
   useEffect(() => {
-    dispatch(getProducts())
-  }, [dispatch])
+    getPopularProductsApi().then((data) => {
+      setProducts(data)
+    })
+  }, [])
 
   return (
     <div className="home">

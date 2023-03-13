@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Search } from '~/components/UI'
+import { Pagination, Search } from '~/components/UI'
 import { ProductList, Categories } from '~/components'
 import { RootState, useStoreDispatch } from '~/store'
 import { getProducts } from '~/store/products'
@@ -18,10 +18,6 @@ const Catalog = () => {
   const tabs: Category[] = useSelector(
     (state: RootState) => state.categories.list
   )
-  useEffect(() => {
-    dispatch(getCategories())
-    dispatch(getProducts())
-  }, [dispatch])
 
   const [activeFilters, setActiveFilters] = useState([{ name: '', url: '' }])
   const [searchQuery, setSearchQuery] = useState('')
@@ -34,11 +30,18 @@ const Catalog = () => {
     )
   }
 
+  const [pageIndex, setPageIndex] = useState(0)
+  const pageCount = 10
+
   const setSearch = debounce((event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value)
   }, 350)
 
   useEffect(() => {
+    if (!tabs.length) {
+      dispatch(getCategories())
+    }
+
     dispatch(
       getProducts({
         searchQuery,
@@ -61,7 +64,17 @@ const Catalog = () => {
           activeFilters={activeFilters}
           tabs={tabs}
         />
-        <ProductList list={products} />
+        <div className="flex flex-col gap-4">
+          <ProductList list={products} />
+
+          <Pagination
+            gotoPage={setPageIndex}
+            canPreviousPage={pageIndex > 0}
+            canNextPage={pageIndex < pageCount - 1}
+            pageCount={pageCount}
+            pageIndex={pageIndex}
+          />
+        </div>
       </div>
     </div>
   )

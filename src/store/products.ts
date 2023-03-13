@@ -5,7 +5,10 @@ import {
   ServerCategoryData,
   ServerProductData,
 } from '~/models/ServerResponse'
-import { getProductsApi } from '~/services/products'
+import {
+  formatProductsServerResponse,
+  getProductsApi,
+} from '~/services/products'
 
 interface ProductsState {
   list: Product[]
@@ -21,18 +24,7 @@ export const productsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getProducts.fulfilled, (state, action) => {
-      state.list = action.payload.data.map((item: ServerProductData) => ({
-        id: item.id,
-        ...item?.attributes,
-        image:
-          import.meta.env.VITE_BASE_URL +
-          item?.attributes.image.data.attributes.url,
-        categories: item?.attributes.categories.data.map(
-          (item: ServerCategoryData) => ({
-            ...item?.attributes,
-          })
-        ),
-      }))
+      state.list = formatProductsServerResponse(action.payload.data)
     })
   },
 })

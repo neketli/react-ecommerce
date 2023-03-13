@@ -4,7 +4,7 @@ import { Category } from '~/models/Category'
 interface Props {
   tabs: Category[]
   activeFilters: Category[]
-  className: string
+  className?: string
   onChange: (tab: Category) => void
 }
 

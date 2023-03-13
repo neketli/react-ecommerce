@@ -50,7 +50,9 @@ const Cart = ({
           )
         })}
       </div>
-      <div className="text-xl font-bold">{total}</div>
+      <div className="mt-8 flex text-xl">
+        Итого: <span className="ml-2 font-bold"> {total} ₽</span>
+      </div>
     </Modal>
   )
 }

@@ -1,4 +1,23 @@
 import axios from './axios'
+import { ServerCategoryData, ServerProductData } from '~/models/ServerResponse'
+import { Product } from '~/models/Product'
+
+export const formatProductsServerResponse = (
+  data: ServerProductData[]
+): Product[] => {
+  return data.map((item: ServerProductData) => ({
+    id: item.id,
+    ...item?.attributes,
+    image:
+      import.meta.env.VITE_BASE_URL +
+      item?.attributes.image.data.attributes.url,
+    categories: item?.attributes.categories.data.map(
+      (item: ServerCategoryData) => ({
+        ...item?.attributes,
+      })
+    ),
+  }))
+}
 
 export const getProductsApi = async ({
   searchQuery,
@@ -34,8 +53,8 @@ export const getProductApi = async (url?: string) => {
 }
 
 export const getPopularProductsApi = async () => {
-  const { data } = await axios.get(`/api/populars`, {
-    params: { populate: '*' },
+  const { data } = await axios.get(`/api/popular`, {
+    params: { populate: 'deep' },
   })
-  return data
+  return formatProductsServerResponse(data.data.attributes.products.data)
 }

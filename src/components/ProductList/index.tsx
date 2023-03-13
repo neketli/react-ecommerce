@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Product } from '~/models/Product'
 import { Card } from '~/components'
 import { addToCart } from '~/store/cart'
@@ -19,6 +19,7 @@ const ProductList = ({ list, isSlider = false }: Props) => {
   const addToCartCallback = (product: Product) => {
     dispatch(addToCart(product))
   }
+
   return (
     <>
       {!isSlider && (
