@@ -32,3 +32,10 @@ export const getProductApi = async (url?: string) => {
   })
   return data
 }
+
+export const getPopularProductsApi = async () => {
+  const { data } = await axios.get(`/api/populars`, {
+    params: { populate: '*' },
+  })
+  return data
+}

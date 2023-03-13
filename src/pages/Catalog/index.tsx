@@ -8,6 +8,7 @@ import { getCategories } from '~/store/categories'
 import { Product } from '~/models/Product'
 import { Category } from '~/models/Category'
 import { debounce } from 'lodash'
+import './style.css'
 
 const Catalog = () => {
   const dispatch = useStoreDispatch()

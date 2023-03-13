@@ -10,15 +10,19 @@ type Props = {
   addToCartCallback: (product: Product) => void
 }
 
-const Card = ({ product, addToCartCallback }: Props) => {
+const Card: React.FC<Props> = ({
+  product,
+  addToCartCallback,
+  ...rest
+}: Props) => {
   const onAddToCart = () => addToCartCallback(product)
   return (
-    <div className="card">
-      <div className="relative block h-48 overflow-hidden rounded">
+    <div className="card" {...rest}>
+      <div className="relative block h-48 overflow-hidden rounded-xl">
         <img
           src={product.image}
           alt={product.title}
-          className="image block h-64 w-48 overflow-hidden rounded-md object-cover object-center shadow-md"
+          className="image block h-64 overflow-hidden object-cover object-center shadow-md"
         />
         {
           <Link to={`/product${product.url_path}`} className="description">
