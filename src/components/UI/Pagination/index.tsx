@@ -45,7 +45,7 @@ const Pagination = ({
   pageIndex: number
 }) => {
   const renderPageLinks = useCallback(() => {
-    if (pageCount === 0) return null
+    if (pageCount === 1) return null
     const visiblePageButtonCount = 5
     let numberOfButtons =
       pageCount < visiblePageButtonCount ? pageCount : visiblePageButtonCount
@@ -55,7 +55,7 @@ const Pagination = ({
       const pageNumberBefore = pageIndices[0] - 1
       const pageNumberAfter = pageIndices[pageIndices.length - 1] + 1
       if (
-        pageNumberBefore >= 0 &&
+        pageNumberBefore >= 1 &&
         (itemIndex < numberOfButtons / 2 || pageNumberAfter > pageCount - 1)
       ) {
         pageIndices.unshift(pageNumberBefore)
@@ -66,7 +66,7 @@ const Pagination = ({
     return pageIndices.map((pageIndexToMap) => (
       <li key={pageIndexToMap}>
         <Button
-          content={pageIndexToMap + 1}
+          content={pageIndexToMap}
           onClick={() => gotoPage(pageIndexToMap)}
           isActive={pageIndex === pageIndexToMap}
         />

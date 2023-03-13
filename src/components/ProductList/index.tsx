@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Product } from '~/models/Product'
 import { Card } from '~/components'
 import { addToCart } from '~/store/cart'

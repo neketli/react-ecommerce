@@ -1,5 +1,9 @@
 import axios from './axios'
-import { ServerCategoryData, ServerProductData } from '~/models/ServerResponse'
+import {
+  Pagination,
+  ServerCategoryData,
+  ServerProductData,
+} from '~/models/ServerResponse'
 import { Product } from '~/models/Product'
 
 export const formatProductsServerResponse = (
@@ -22,9 +26,11 @@ export const formatProductsServerResponse = (
 export const getProductsApi = async ({
   searchQuery,
   categories,
+  page = 1,
 }: {
   searchQuery?: string
   categories?: string[]
+  page?: number
 }) => {
   const filters: { [key: string]: string } = {}
 
@@ -38,6 +44,8 @@ export const getProductsApi = async ({
       populate: '*',
       'filters[$or][0][title][$containsi]': searchQuery,
       'filters[$or][1][categories][name][$containsi]': searchQuery,
+      'pagination[page]': page,
+      'pagination[pageSize]': 20,
       ...filters,
     },
   })

@@ -15,6 +15,9 @@ const Catalog = () => {
   const products: Product[] = useSelector(
     (state: RootState) => state.products.list
   )
+  const pagination = useSelector(
+    (state: RootState) => state.products.pagination
+  )
   const tabs: Category[] = useSelector(
     (state: RootState) => state.categories.list
   )
@@ -30,8 +33,7 @@ const Catalog = () => {
     )
   }
 
-  const [pageIndex, setPageIndex] = useState(0)
-  const pageCount = 10
+  const [pageIndex, setPageIndex] = useState(pagination.page)
 
   const setSearch = debounce((event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value)
@@ -46,9 +48,10 @@ const Catalog = () => {
       getProducts({
         searchQuery,
         categories: activeFilters.map((item) => item.url),
+        page: pageIndex,
       })
     )
-  }, [searchQuery, activeFilters, dispatch])
+  }, [searchQuery, activeFilters, pageIndex, dispatch])
 
   return (
     <div className="catalog">
@@ -66,14 +69,15 @@ const Catalog = () => {
         />
         <div className="flex flex-col gap-4">
           <ProductList list={products} />
-
-          <Pagination
-            gotoPage={setPageIndex}
-            canPreviousPage={pageIndex > 0}
-            canNextPage={pageIndex < pageCount - 1}
-            pageCount={pageCount}
-            pageIndex={pageIndex}
-          />
+          {pagination.pageCount > 1 && (
+            <Pagination
+              gotoPage={setPageIndex}
+              canPreviousPage={pageIndex > 1}
+              canNextPage={pageIndex < pagination.pageCount}
+              pageCount={pagination.pageCount}
+              pageIndex={pageIndex}
+            />
+          )}
         </div>
       </div>
     </div>
