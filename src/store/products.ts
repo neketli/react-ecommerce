@@ -40,7 +40,7 @@ export const productsSlice = createSlice({
 export const getProducts = createAsyncThunk(
   'getProducts',
   async (
-    params: { products?: string } = {}
+    params: { searchQuery?: string; categories?: string[] } = {}
   ): Promise<ProductsServerResponse> => {
     const { data } = await getProductsApi(params)
     return data

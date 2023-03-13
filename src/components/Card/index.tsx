@@ -20,11 +20,11 @@ const Card = ({ product, addToCartCallback }: Props) => {
           alt={product.title}
           className="image block h-64 w-48 overflow-hidden rounded-md object-cover object-center shadow-md"
         />
-        {product.description && (
-          <Link to={`product/${product.id}`} className="description">
-            {product.description}
+        {
+          <Link to={`/product${product.url_path}`} className="description">
+            {product.description || ''}
           </Link>
-        )}
+        }
       </div>
 
       <div className="mt-4 flex flex-col">

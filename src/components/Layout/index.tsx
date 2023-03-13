@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 
@@ -6,12 +6,7 @@ import { Navbar, Footer, Cart } from '~/components'
 import { Product } from '~/models/Product'
 import { MAIN_MENU } from '~/services/tabs'
 import { RootState, useStoreDispatch } from '~/store'
-import {
-  CartProduct,
-  decrementCount,
-  incrementCount,
-  removeItem,
-} from '~/store/cart'
+import { decrementCount, incrementCount, removeItem } from '~/store/cart'
 
 const Layout = () => {
   const [isModalOpen, setIsOpen] = React.useState(false)
@@ -24,7 +19,7 @@ const Layout = () => {
 
   const dispatch = useStoreDispatch()
 
-  const getTotal = () => {
+  const total = useMemo(() => {
     const total = {
       count: 0,
       price: 0,
@@ -34,14 +29,14 @@ const Layout = () => {
       total.price += item.price * item.count
     })
     return total
-  }
+  }, [cart])
 
   const products = cart
 
   return (
     <div className="app h-full">
       <Navbar
-        cartCount={getTotal().count}
+        cartCount={total.count}
         toggleCartCallback={() => setIsOpen(!isModalOpen)}
         menuItems={MAIN_MENU}
       />
@@ -50,7 +45,7 @@ const Layout = () => {
       </div>
       <Footer />
       <Cart
-        total={getTotal().price}
+        total={total.price}
         products={products}
         isModalOpen={isModalOpen}
         setIsOpenCallback={() => {

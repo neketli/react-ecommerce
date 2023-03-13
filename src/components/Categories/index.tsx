@@ -3,12 +3,12 @@ import { Category } from '~/models/Category'
 
 interface Props {
   tabs: Category[]
-  activeTab: Category
+  activeFilters: Category[]
   className: string
   onChange: (tab: Category) => void
 }
 
-const Tabs = ({ tabs, className, activeTab, onChange, ...rest }: Props) => {
+const Tabs = ({ tabs, className, activeFilters, onChange, ...rest }: Props) => {
   return (
     <ul
       aria-label="Tabs"
@@ -21,7 +21,7 @@ const Tabs = ({ tabs, className, activeTab, onChange, ...rest }: Props) => {
           <button
             type="button"
             className={
-              tab.url === activeTab.url
+              activeFilters.includes(tab)
                 ? 'inline-block rounded-lg bg-yellow-300 px-4 py-3 text-black'
                 : 'inline-block rounded-lg px-4 py-3 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white'
             }

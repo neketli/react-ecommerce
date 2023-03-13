@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Search } from '~/components/UI'
 import { ProductList, Categories } from '~/components'
@@ -22,16 +22,29 @@ const Catalog = () => {
     dispatch(getProducts())
   }, [dispatch])
 
-  const [activeFilter, setActiveFilter] = useState({ name: '', url: '' })
+  const [activeFilters, setActiveFilters] = useState([{ name: '', url: '' }])
   const [searchQuery, setSearchQuery] = useState('')
+
+  const setCategory = (curr: Category) => {
+    setActiveFilters((prev) =>
+      prev.includes(curr)
+        ? prev.filter((item) => item.url !== curr.url)
+        : [...prev, curr]
+    )
+  }
 
   const setSearch = debounce((event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value)
-  }, 200)
+  }, 350)
 
   useEffect(() => {
-    dispatch(getProducts({ products: searchQuery }))
-  }, [searchQuery])
+    dispatch(
+      getProducts({
+        searchQuery,
+        categories: activeFilters.map((item) => item.url),
+      })
+    )
+  }, [searchQuery, activeFilters, dispatch])
 
   return (
     <div className="catalog">
@@ -43,8 +56,8 @@ const Catalog = () => {
         />
         <Categories
           className="my-4"
-          onChange={setActiveFilter}
-          activeTab={activeFilter}
+          onChange={setCategory}
+          activeFilters={activeFilters}
           tabs={tabs}
         />
         <ProductList list={products} />

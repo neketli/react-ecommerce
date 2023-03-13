@@ -30,6 +30,7 @@ export interface ServerProductData extends DefaultServerResponse {
     image: {
       data: ServerImageData
     }
+    url_path: string
   }
 }
 

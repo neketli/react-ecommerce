@@ -7,4 +7,5 @@ export interface Product {
   description?: string
   categories?: Category[]
   price: number
+  url_path: string
 }
