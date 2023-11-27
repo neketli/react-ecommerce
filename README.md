@@ -20,13 +20,20 @@
    yarn dev
    ```
 
-2. Build for production.
+2. Start strapi server. ([read more](./api/README.md))
+
+   ```bash
+   cd ./api
+   yarn start
+   ```
+
+3. Build for production.
 
    ```bash
    yarn build
    ```
 
-3. Test your production build.
+4. Test your production build.
 
    ```bash
    yarn serve
