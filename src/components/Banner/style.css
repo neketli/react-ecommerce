@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap');
+.banner {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.banner .image {
+  @apply relative h-auto w-52;
+  animation: banner-levitate 6s ease-in-out infinite;
+}
+
+@keyframes banner-levitate {
+  0% {
+    transform: translate(0, 0) rotate(6deg);
+  }
+  50% {
+    transform: translate(0, 5%) rotate(3deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(6deg);
+  }
+}
